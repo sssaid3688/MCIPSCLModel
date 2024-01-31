@@ -33,6 +33,10 @@ Our code is based on Python 3.8.18 and PyTorch 2.1.0. Requirements are listed as
 
 
 We highly suggest you using [Anaconda](https://www.anaconda.com) to manage your python environment.
+
+## Data
+```wget 120.27.214.45/Data/ner/multimodal/data.tar.gz```
+Place the dataset in the file 'example/ner/multimodal/data'
 ## How to install
 ```
 pip install -r requirements.txt
