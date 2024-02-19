@@ -56,6 +56,8 @@ python setup.py install
 ## How to Run
 
 ### Quick start
+Download the [PLM](https://huggingface.co/openai/clip-vit-base-patch32/tree/main) and set `vit_name` in `train.yaml` and `predict.yaml` as the directory of the PLM.
+
 The script **run.py** acts as a main function to the project, you can run the experiments by replacing the unspecified options in the following command with the corresponding values:
 
 ```shell
@@ -64,3 +66,4 @@ The script **run.py** acts as a main function to the project, you can run the ex
 ```
 
 or run the script **run.py** directly via pycharm.
+
