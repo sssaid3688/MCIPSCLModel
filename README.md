@@ -36,8 +36,18 @@ We highly suggest you using [Anaconda](https://www.anaconda.com) to manage your 
 
 ## Dataset
 The MNRE dataset comes from https://github.com/thecharm/Mega, many thanks.
-```wget 120.27.214.45/Data/ner/multimodal/data.tar.gz```
-Place the dataset in the file 'example/ner/multimodal/data'
+You can download the Twitter2015 and Twitter2017 dataset with detected visual objects using folloing command:
+```bash
+wget 120.27.214.45/Data/ner/multimodal/data.tar.gz
+tar -xzvf data.tar.gz
+```
+- The twitter15 dataset with detected visual objects is stored in `data`:
+    
+  - `twitter15_detect`：Detected objects using RCNN
+  - `twitter2015_aux_images`：Detected objects using visual grouding
+  - `twitter2015_images`： Original images
+  - `train.txt`: Train set
+  - `...`
 ## How to install
 ```
 pip install -r requirements.txt
