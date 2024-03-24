@@ -66,11 +66,11 @@ def main(cfg):
             os.makedirs(cfg.save_path, exist_ok=True)
     print(cfg)
 
-    label_mapping = {label:idx for idx, label in enumerate(LABEL_LIST, 1)}
-    label_mapping["PAD"] = 0
+    label_mapping = {label:idx for idx, label in enumerate(LABEL_LIST, 0)}
+    # label_mapping["PAD"] = 0
     data_path, img_path, aux_path = DATA_PATH[cfg.dataset_name], IMG_PATH[cfg.dataset_name], AUX_PATH[cfg.dataset_name]
     rcnn_img_path = DATA_PATH[cfg.dataset_name]['rcnn_img_path']
-
+    rcnn_img_path=None
     processor = MMPNERProcessor(data_path, cfg)
     test_dataset = MMPNERDataset(processor, label_mapping, img_path, aux_path, rcnn_img_path, max_seq=cfg.max_seq, ignore_idx=cfg.ignore_idx, aux_size=cfg.aux_size, rcnn_size=cfg.rcnn_size, mode='test', cwd=cwd)
     test_dataloader = DataLoader(test_dataset, batch_size=cfg.batch_size, shuffle=False, num_workers=0, pin_memory=True)
