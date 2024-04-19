@@ -1,8 +1,8 @@
-# MCIPS-CL
+# MGIPS-CL
 
 ## Architecture
 
-<img src="overall.png">
+<img src="overall2.png">
 
 
 
