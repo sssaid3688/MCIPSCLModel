@@ -1100,7 +1100,7 @@ class CrossFusion(nn.Module):
         self.num_layers=1
         self.vision_layers = MGMHAEncoder_img(vision_config)
         self.text_layer = MGMHAEncoder_text(text_config)
-        self.vision_layers_2 = MGMHAEncoder_img(vision_config)
+        # self.vision_layers_2 = MGMHAEncoder_img(vision_config)
         self.adapter_img=adapter(768)
         self.adapter = adapter(768)
 
@@ -1146,13 +1146,22 @@ class CrossFusion(nn.Module):
             output_qks=output_qks,
             current_layer=idx,
         )
-        imgout2 = self.vision_layers_2(
+        imgout2 = self.vision_layers(
             vision_hidden_states,
             output_attentions=output_attentions,
             past_key_values=text_layer_output[0],
             current_layer=idx,
             output_qks=output_qks,
         )
+        # vision_hidden_states = vision_layer_output[0]
+
+        # imgout2 = self.vision_layers_2(
+        #     vision_hidden_states,
+        #     output_attentions=output_attentions,
+        #     past_key_values=text_layer_output[0],
+        #     current_layer=idx,
+        #     output_qks=output_qks,
+        # )
         text2 = text_layer_output[0]
         text1 = text_embeds
         img1 = vision_hidden_states
