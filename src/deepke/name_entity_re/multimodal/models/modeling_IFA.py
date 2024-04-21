@@ -1092,7 +1092,7 @@ class MGMHA_img(nn.Module):
 
         return attn_output, attn_weights_reshaped, qks
 
-class CrossFusion(nn.Module):
+class interweaveFusion(nn.Module):
     def __init__(self, vision_config, text_config):
         super().__init__()
         self.vision_config = vision_config
@@ -1202,7 +1202,7 @@ class MCIPSCLModel(nn.Module):
         # all
         self.encoder = IFAEncoder(vision_config, text_config)
         # self.Biencoder = BiIFAFusionEncoder(vision_config,text_config)
-        self.crossfusion = CrossFusion(vision_config,text_config)
+        self.interfusion = interweaveFusion(vision_config,text_config)
 
         # self.fc = fc(49,40)
 
@@ -1256,7 +1256,7 @@ class MCIPSCLModel(nn.Module):
             return_dict=return_dict,
         )
         # return encoder_outputs
-        out = self.crossfusion(
+        out = self.interfusion(
             vision_embeds=encoder_outputs[1],
             text_embeds=encoder_outputs[0],
             attention_mask=extended_attention_mask,
